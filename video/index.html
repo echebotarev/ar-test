@@ -109,6 +109,9 @@
 		texture.format = THREE.RGBFormat;
 		let material1 = new THREE.MeshBasicMaterial({map: texture});
 
+		console.log("GEOMETRY", geometry1);
+		console.log("TEXTURE", texture);
+
 		mesh1 = new THREE.Mesh(geometry1, material1);
 		mesh1.rotation.x = -Math.PI / 2;
 
