@@ -101,6 +101,8 @@
 		let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 			type: 'pattern', patternUrl: "data/hiro.patt",
 		})
+
+        // отвечает за размер и положение видео
 		let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 2, 2);
 		let video = document.getElementById('video');
 		let texture = new THREE.VideoTexture(video);
