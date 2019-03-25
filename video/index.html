@@ -55,11 +55,11 @@
 			antialias: true,
 			alpha: true
 		});
-		renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+		renderer.setClearColor(new THREE.Color('lightgrey'), 0);
 		renderer.setSize(640, 480);
-		renderer.domElement.style.position = 'absolute'
-		renderer.domElement.style.top = '0px'
-		renderer.domElement.style.left = '0px'
+		renderer.domElement.style.position = 'absolute';
+		renderer.domElement.style.top = '0px';
+		renderer.domElement.style.left = '0px';
 		document.body.appendChild(renderer.domElement);
 		clock = new THREE.Clock();
 		deltaTime = 0;
@@ -73,8 +73,8 @@
 		});
 
 		function onResize() {
-			arToolkitSource.onResize()
-			arToolkitSource.copySizeTo(renderer.domElement)
+			arToolkitSource.onResize();
+			arToolkitSource.copySizeTo(renderer.domElement);
 			if (arToolkitContext.arController !== null) {
 				arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
 			}
@@ -110,7 +110,7 @@
 		scene.add(markerRoot1);
 		let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 			type: 'pattern', patternUrl: "data/hiro.patt",
-		})
+		});
 
         // отвечает за размер и положение видео
 		let geometry1 = new THREE.PlaneBufferGeometry(1, 1, 2, 2);
@@ -125,6 +125,10 @@
 		mesh1.rotation.x = -Math.PI / 2;
 
 		markerRoot1.add(mesh1);
+
+		console.log("ArToolkitContext", arToolkitContext);
+		console.log("ArToolkitSource", arToolkitSource);
+
 	}
 
 	function update() {
