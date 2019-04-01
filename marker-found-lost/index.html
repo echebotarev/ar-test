@@ -29,22 +29,9 @@
 </head>
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam;'>
-        <a-assets>
-            <video
-                id="video"
-                autoplay
-                loop="true"
-                src="assets/video/animal_planet.mp4"
-                webkit-playsinline
-            ></video>
-        </a-assets>
 
         <a-marker markerHandler preset='hiro' >
-            <a-video
-                src="#video"
-                position="0 0 0"
-                rotation="-90 0 0"
-            ></a-video>
+            <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
         </a-marker>
 
         <a-camera-static/>
