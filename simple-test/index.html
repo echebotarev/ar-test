@@ -8,16 +8,42 @@
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+
+    <script>
+        AFRAME.registerComponent('registerevents', {
+        	init: function () {
+        	    let marker = this.el;
+        	    console.log("MARKER", marker);
+        	}
+        })
+    </script>
 </head>
 <body style="margin: 0; overflow: hidden;">
 <a-scene embedded arjs="debugUIEnabled: false; sourceType: webcam;">
     <a-assets>
-        <video id="video" autoplay loop="true" src="assets/video/animal_planet.mp4"></video>
+        <video
+            id="video"
+            autoplay
+            loop="true"
+            src="assets/video/animal_planet.mp4"
+            webkit-playsinline
+        ></video>
     </a-assets>
 
     <!-- Using the asset management system. -->
-    <a-video src="#video" width="5" height="5" position="0 0 0"></a-video>
-    <a-marker-camera preset="hiro"></a-marker-camera>
+    <a-video
+        src="#video"
+        width="5"
+        height="5"
+        position="0 0 0"
+        rotation="-90 0 0"
+    ></a-video>
+
+    <a-marker-camera
+        id="marker"
+        preset="hiro"
+        registerevents
+    ></a-marker-camera>
 </a-scene>
 </body>
 </html>
