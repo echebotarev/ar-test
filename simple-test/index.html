@@ -15,23 +15,6 @@
         	    let marker = this.el;
         	    console.log("MARKER", marker);
 
-		        marker.addEventListener("markerFound", () => {
-			        let markerId = marker.id;
-			        console.log("markerFound", markerId);
-
-			        // code to make video play and turn element visibility on.
-			        // a_vid.setAttribute("visible", "true");
-			        // vid.play();
-		        });
-		        marker.addEventListener("markerLost", () => {
-			        let markerId = marker.id;
-			        console.log("markerLost", markerId);
-
-			        // code to make video pause and turn visibility off.
-			        // vid.pause();
-			        // a_vid.setAttribute("visible", "false");
-		        });
-
         	    this.geometry = new THREE.PlaneBufferGeometry(1, 1, 2, 2);
         	}
         })
@@ -50,13 +33,11 @@
     </a-assets>
 
     <!-- Using the asset management system. -->
-<!--    <a-video-->
-<!--        src="#video"-->
-<!--        position="0 0 0"-->
-<!--        rotation="-90 0 0"-->
-<!--    ></a-video>-->
-
-    <a-entity video="src: #video; position: 0 0 0; rotation: -90 0 0"></a-entity>
+    <a-video
+        src="#video"
+        position="0 0 0"
+        rotation="-90 0 0"
+    ></a-video>
 
     <a-marker-camera
         id="marker"
