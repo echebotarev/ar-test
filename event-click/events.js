@@ -21,8 +21,8 @@ AFRAME.registerComponent('markerhandler', {
 	},
 
 	tick: function (t, dt) {
-		console.log("ANIMATED MARKER", animatedMarker.object3d.visible);
-		console.log("A ENTITY", aEntity.object3d.visible);
+		console.log("ANIMATED MARKER", animatedMarker.object3d);
+		console.log("A ENTITY", aEntity.object3d);
 
 		console.log("-------------------------------------------------------");
 
