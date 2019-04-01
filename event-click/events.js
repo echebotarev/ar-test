@@ -1,11 +1,16 @@
+let animatedMarker, aEntity;
+
 AFRAME.registerComponent('markerhandler', {
 
 	init: function () {
-		const animatedMarker = document.querySelector("#animated-marker");
-		const aEntity = document.querySelector("#animated-model");
+		animatedMarker = document.querySelector("#animated-marker");
+		aEntity = document.querySelector("#animated-model");
 
 		// every click, we make our model grow in size :)
 		animatedMarker.addEventListener('click', function (ev, target) {
+			console.log("EVENT", ev);
+			console.log("TARGET", target);
+
 			const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
 			if (aEntity && intersectedElement === aEntity) {
 				const scale = aEntity.getAttribute('scale');
@@ -13,5 +18,16 @@ AFRAME.registerComponent('markerhandler', {
 				aEntity.setAttribute('scale', scale);
 			}
 		});
+	},
+
+	tick: function (t, dt) {
+	    console.log("FIRST ARG", t);
+		console.log("SECOND ARG", dt);
+
+		console.log("ANIMATED MARKER", animatedMarker);
+		console.log("A ENTITY", aEntity);
+
+		console.log("-------------------------------------------------------");
+
 	}
 });
