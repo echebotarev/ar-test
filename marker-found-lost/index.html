@@ -7,35 +7,25 @@
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
 
-    <script>
-        AFRAME.registerComponent("markerHandler", {
-	        init: function () {
-		        let marker = this.el;
-		        console.log('MARKER', marker);
-
-		        marker.addEventListener("markerFound", (e)=>{
-			        console.log("found")
-		        });
-
-		        marker.addEventListener("markerLost", (e)=>{
-			        console.log("lost")
-		        });
-
-		        this.geometry = new THREE.PlaneBufferGeometry(1, 1, 2, 2);
-	        }
-        });
-
-    </script>
 </head>
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam;'>
-
-        <a-marker markerHandler preset='hiro' emitevents="true">
+        <a-marker preset='hiro'>
             <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
         </a-marker>
 
         <a-camera-static/>
     </a-scene>
 
+    <script>
+	    var m = document.querySelector("a-marker");
+	    m.addEventListener("markerFound", (e)=>{
+		    console.log("found")
+	    });
+
+	    m.addEventListener("markerLost", (e)=>{
+		    console.log("lost")
+	    });
+    </script>
 </body>
 </html>
