@@ -42,23 +42,21 @@
     <div id="button" class="button"></div>
 
     <script>
-        var scene = document.querySelector("a-scene");
+        var scene = document.querySelector("a-scene"),
+            video = document.getElementById('video');
+
         scene.addEventListener("markerFound", (e)=>{
-	        console.log("SCENE found")
+        	if (!Played) {
+        		return false;
+            }
+
+	        video.play();
         });
 
         scene.addEventListener("markerLost", (e)=>{
-	        console.log("SCENE lost")
+	        video.pause();
         });
 
-	    var m = document.querySelector("a-marker");
-	    m.addEventListener("markerFound", (e)=>{
-		    console.log("found")
-	    });
-
-	    m.addEventListener("markerLost", (e)=>{
-		    console.log("lost")
-	    });
     </script>
 </body>
 </html>
