@@ -42,6 +42,15 @@
     <div id="button" class="button"></div>
 
     <script>
+        var scene = document.querySelector("a-scene");
+        scene.addEventListener("markerFound", (e)=>{
+	        console.log("SCENE found")
+        });
+
+        scene.addEventListener("markerLost", (e)=>{
+	        console.log("SCENE lost")
+        });
+
 	    var m = document.querySelector("a-marker");
 	    m.addEventListener("markerFound", (e)=>{
 		    console.log("found")
