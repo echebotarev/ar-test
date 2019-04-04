@@ -17,8 +17,18 @@
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam;'>
         <a-assets>
             <video
-                id="video"
-                src="../simple-test/assets/video/animal_planet.mp4"
+                id="animal"
+                src="assets/video/animal_planet.mp4"
+                playsinline
+                webkit-playsinline
+                muted
+                loop
+                crossOrigin="anonymous"
+            ></video>
+
+            <video
+                id="cartoon"
+                src="assets/video/cartoon_network.mp4"
                 playsinline
                 webkit-playsinline
                 muted
@@ -29,7 +39,15 @@
 
         <a-marker preset='hiro'>
             <a-video
-                src="#video"
+                src="#animal"
+                position="0 0 0"
+                rotation="-90 0 0"
+            ></a-video>
+        </a-marker>
+
+        <a-marker preset="custom" type="pattern" url="assets/markers/marker.patt">
+            <a-video
+                src="#cartoon"
                 position="0 0 0"
                 rotation="-90 0 0"
             ></a-video>
@@ -42,7 +60,7 @@
 
     <script>
         var scene = document.querySelector("a-scene"),
-            video = document.getElementById('video');
+            video = document.getElementById('animal');
 
         scene.addEventListener("markerFound", (e)=>{
         	if (!Played) {
