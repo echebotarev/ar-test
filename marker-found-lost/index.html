@@ -63,6 +63,8 @@
             video = document.getElementById('cartoon');
 
         scene.addEventListener("markerFound", (e)=>{
+        	console.log("MARKER FOUND");
+
         	if (!Played) {
         		return false;
             }
@@ -71,6 +73,7 @@
         });
 
         scene.addEventListener("markerLost", (e)=>{
+	        console.log("MARKER LOST");
 	        video.pause();
         });
 
