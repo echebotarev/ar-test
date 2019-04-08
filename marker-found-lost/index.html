@@ -68,6 +68,8 @@
 
         scene.addEventListener("markerFound", (e)=>{
         	console.log("MARKER FOUND");
+        	console.log("MARKER", e.target);
+	        console.log("------------------------");
 
         	if (!Played) {
         		return false;
@@ -78,6 +80,9 @@
 
         scene.addEventListener("markerLost", (e)=>{
 	        console.log("MARKER LOST");
+	        console.log("MARKER", e.target);
+	        console.log("------------------------");
+
 	        video.pause();
         });
 
